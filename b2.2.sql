@@ -1,4 +1,4 @@
-﻿USE QLSV
+USE QLSV
 
 -------------------- 1 -------------------------
 SELECT SV.masv, SV.hoten, SV.malop, DHP.mahp, DHP.diemhp
@@ -38,7 +38,7 @@ WHERE DHP.diemhp BETWEEN 5 AND 7 AND HP.hocky = 1;
 -------------------- 5 -------------------------
 SELECT TOP 5 masv, hoten, malop
 FROM dbo.SINHVIEN
-WHERE diachi LIKE N'%Thái Bình%';
+WHERE diachi LIKE N'Thái Bình';
 -------------------- 5 -------------------------
 
 
