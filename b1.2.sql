@@ -1,4 +1,4 @@
-﻿CREATE DATABASE QLBH
+CREATE DATABASE QLBH
 
 USE QLBH
 
@@ -6,6 +6,8 @@ CREATE TABLE KHACHHANG
 (
 	makh CHAR(5) NOT NULL PRIMARY KEY,
 	tenkh NVARCHAR(50),
+	gioitinh BIT,
+	ngaysinh DATETIME,
 	diachi NVARCHAR(50),
 	dienthoai CHAR(12),
 	email CHAR(20) NULL,
@@ -37,13 +39,13 @@ CREATE TABLE CHITIETHD
 	FOREIGN KEY(mah) REFERENCES dbo.HANGHOA(mah),
 	FOREIGN KEY(mahd) REFERENCES dbo.HOADON(mahd)
 )
-
-INSERT INTO dbo.KHACHHANG (makh,tenkh,diachi,dienthoai,email,loaikh)
+SET DATEFORMAT dmy;
+INSERT INTO dbo.KHACHHANG (makh,tenkh,gioitinh,ngaysinh,diachi,dienthoai,email,loaikh)
 VALUES
-	('KH001', N'Nguyễn Thị Mai Chi', N'Quy Nhơn','09762334445','MaiChi@gmail.com','VIP'),
-	('KH002', N'Phan Thị Thanh Hằng', N'Quy Nhơn','09876655555',NULL,'TV'),
-	('KH003', N'Trần Văn Toàn', N'Tuy Phước','0987665556','ToanVan@gmail.com','TV'),
-	('KH004', N'Trần Văn Ẩn', N'Quy Nhơn','09873648124',NULL,'VIP')
+	('KH001', N'Nguyễn Thị Mai Chi','False','19/08/2004',N'Quy Nhơn','09762334445','MaiChi@gmail.com','VIP'),
+	('KH002', N'Phan Thị Thanh Hằng','False','28/02/2004', N'Quy Nhơn','09876655555',NULL,'TV'),
+	('KH003', N'Trần Văn Toàn','True','12/04/2004', N'Tuy Phước','0987665556','ToanVan@gmail.com','TV'),
+	('KH004', N'Trần Văn Ẩn','True','19/12/2004', N'Quy Nhơn','09873648124',NULL,'VIP')
 
 
 INSERT INTO dbo.HANGHOA (mah,tenh,donvitinh,dongia)
@@ -63,7 +65,7 @@ VALUES
 	('003','KH002', '01/02/2018'),
 	('004','KH002', '01/03/2018'),
 	('005','KH003', '02/03/2018'),
-	('006','KH004', '02/05/2018'),
+	('006','KH004', '02/08/2018'),
 	('007','KH003', '03/05/2018'),
 	('008','KH003', '04/05/2018')
 
