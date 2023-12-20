@@ -1,12 +1,12 @@
 USE QLSV
 
--------------------- 1 -------------------------
+-------------------- 1 ------------------------
 SELECT TOP 1 sv.masv,sv.hoten,AVG(diem.diemhp) AS tbchp
 FROM dbo.SINHVIEN sv
 JOIN dbo.DIEMHP diem ON sv.masv = diem.masv
 GROUP BY sv.masv, sv.hoten
 ORDER BY tbchp DESC
--------------------- 1 -------------------------
+-------------------- 1 ------------------------
 
 -------------------- 2 -------------------------
 SELECT TOP 1 sv.masv,sv.hoten,COUNT(diem.mahp) AS sohocphan_duoi5
