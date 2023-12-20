@@ -1,4 +1,5 @@
 USE QLSV
+  
 -------------------- 1 -------------------------
 SELECT hocky,masv,SUM(diemhp*sodvht)/SUM(sodvht) AS diemtbc
 FROM dbo.DMHOCPHAN
