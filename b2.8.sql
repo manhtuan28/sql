@@ -68,9 +68,9 @@ FROM HOADON
 JOIN CHITIETHD ON HOADON.mahd = CHITIETHD.mahd
 JOIN HANGHOA ON CHITIETHD.mah = HANGHOA.mah
 JOIN KHACHHANG ON HOADON.makh = KHACHHANG.makh
-WHERE HANGHOA.tenh LIKE '%B�nh%'
+WHERE HANGHOA.tenh LIKE '%Bánh%'
 GROUP BY HOADON.makh, KHACHHANG.tenkh
-HAVING COUNT(DISTINCT HANGHOA.mah) = (SELECT COUNT(*)FROM HANGHOA WHERE tenh LIKE '%B�nh%')
+HAVING COUNT(DISTINCT HANGHOA.mah) = (SELECT COUNT(*)FROM HANGHOA WHERE tenh LIKE '%Bánh%')
 -------------------- 7 -------------------------
 
 -------------------- 8 -------------------------
@@ -104,4 +104,72 @@ ORDER BY KHACHHANG.makh
 -------------------- 10 -------------------------
 
 -------------------- 11 -------------------------
+SELECT TOP 1 HOADON.mahd AS 'Số hóa đơn',HOADON.ngaylaphd AS 'Ngày bán',KHACHHANG.tenkh AS 'Tên khách hàng',
+KHACHHANG.diachi AS 'Địa chỉ khách hàng',
+SUM(CHITIETHD.soluong * HANGHOA.dongia) AS 'Tổng giá trị hóa đơn'
+FROM HOADON
+JOIN CHITIETHD ON HOADON.mahd = CHITIETHD.mahd
+JOIN HANGHOA ON CHITIETHD.mah = HANGHOA.mah
+JOIN KHACHHANG ON HOADON.makh = KHACHHANG.makh
+GROUP BY HOADON.mahd, HOADON.ngaylaphd, KHACHHANG.tenkh, KHACHHANG.diachi
+ORDER BY SUM(CHITIETHD.soluong * HANGHOA.dongia) DESC
+-- ChatGPT làm chứ cn người éo ai làm được.
 -------------------- 11 -------------------------
+
+-------------------- 12 -------------------------
+SELECT TOP 1 HOADON.mahd AS 'Số hóa đơn',HOADON.ngaylaphd AS 'Ngày',KHACHHANG.tenkh AS 'Tên khách hàng',
+KHACHHANG.diachi AS 'Địa chỉ khách hàng',
+SUM(CHITIETHD.soluong * HANGHOA.dongia) AS 'Tổng trị giá hóa đơn'
+FROM HOADON
+JOIN CHITIETHD ON HOADON.mahd = CHITIETHD.mahd
+JOIN HANGHOA ON CHITIETHD.mah = HANGHOA.mah
+JOIN KHACHHANG ON HOADON.makh = KHACHHANG.makh
+WHERE MONTH(HOADON.ngaylaphd) = 5 AND YEAR(HOADON.ngaylaphd) = 2000
+GROUP BY HOADON.mahd, HOADON.ngaylaphd, KHACHHANG.tenkh, KHACHHANG.diachi
+ORDER BY SUM(CHITIETHD.soluong * HANGHOA.dongia) DESC
+-------------------- 12 -------------------------
+
+-------------------- 13 -------------------------
+SELECT TOP 1 HOADON.mahd AS 'Số hóa đơn',HOADON.ngaylaphd AS 'Ngày',KHACHHANG.tenkh AS 'Tên khách hàng',
+KHACHHANG.diachi AS 'Địa chỉ khách hàng',
+SUM(CHITIETHD.soluong * HANGHOA.dongia) AS 'Tổng trị giá hóa đơn'
+FROM HOADON
+JOIN CHITIETHD ON HOADON.mahd = CHITIETHD.mahd
+JOIN HANGHOA ON CHITIETHD.mah = HANGHOA.mah
+JOIN KHACHHANG ON HOADON.makh = KHACHHANG.makh
+GROUP BY HOADON.mahd, HOADON.ngaylaphd, KHACHHANG.tenkh, KHACHHANG.diachi
+ORDER BY SUM(CHITIETHD.soluong * HANGHOA.dongia) ASC
+-------------------- 13 -------------------------
+
+-------------------- 14 -------------------------
+SELECT TOP 1 KHACHHANG.makh AS 'Mã khách hàng',KHACHHANG.tenkh AS 'Tên khách hàng',COUNT(HOADON.mahd) AS 'Số lượng hóa đơn'
+FROM KHACHHANG
+JOIN HOADON ON KHACHHANG.makh = HOADON.makh
+GROUP BY KHACHHANG.makh, KHACHHANG.tenkh
+ORDER BY COUNT(HOADON.mahd) DESC
+-------------------- 14 -------------------------
+
+-------------------- 15 -------------------------
+SELECT TOP 1 KHACHHANG.makh AS 'Mã khách hàng',KHACHHANG.tenkh AS 'Tên khách hàng',SUM(CHITIETHD.soluong) AS 'Tổng số lượng hàng'
+FROM KHACHHANG
+JOIN HOADON ON KHACHHANG.makh = HOADON.makh
+JOIN CHITIETHD ON HOADON.mahd = CHITIETHD.mahd
+GROUP BY KHACHHANG.makh, KHACHHANG.tenkh
+ORDER BY SUM(CHITIETHD.soluong) DESC
+-------------------- 15 -------------------------
+
+-------------------- 16 -------------------------
+SELECT TOP 1 HANGHOA.mah AS 'Mã mặt hàng',HANGHOA.tenh AS 'Tên mặt hàng',COUNT(CHITIETHD.mah) AS 'Số lượng hóa đơn'
+FROM HANGHOA
+JOIN CHITIETHD ON HANGHOA.mah = CHITIETHD.mah
+GROUP BY HANGHOA.mah, HANGHOA.tenh
+ORDER BY COUNT(CHITIETHD.mah) DESC
+-------------------- 16 -------------------------
+
+-------------------- 17 -------------------------
+SELECT TOP 1 HANGHOA.mah AS 'Mã mặt hàng',HANGHOA.tenh AS 'Tên mặt hàng',SUM(CHITIETHD.soluong) AS 'Tổng số lượng bán'
+FROM HANGHOA
+JOIN CHITIETHD ON HANGHOA.mah = CHITIETHD.mah
+GROUP BY HANGHOA.mah, HANGHOA.tenh
+ORDER BY SUM(CHITIETHD.soluong) DESC
+-------------------- 17 -------------------------
