@@ -1,4 +1,5 @@
 USE QLSV
+  
 -------------------- 1 -------------------------
 SELECT SV.masv, SV.hoten, SV.malop, DHP.mahp, DHP.diemhp
 FROM dbo.SINHVIEN SV
