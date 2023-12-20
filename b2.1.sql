@@ -1,5 +1,4 @@
 USE QLSV
-
 -------------------- 1 -------------------------
 SELECT masv, hoten, CONVERT(VARCHAR(10), ngaysinh, 103)
 AS ngaysinh, CASE gioitinh WHEN 0 THEN N'Nam' ELSE N'Nữ'
