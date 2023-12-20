@@ -1,6 +1,6 @@
 USE QLBH
 
--------------------- 1 -------------------------
+-------------------- 1 ------------------------
 SELECT KHACHHANG.makh,KHACHHANG.tenkh,SUM(CHITIETHD.soluong * HANGHOA.dongia) AS tongthanhthien
 FROM KHACHHANG
 JOIN HOADON ON KHACHHANG.makh = HOADON.makh
@@ -8,7 +8,7 @@ JOIN CHITIETHD ON HOADON.mahd = CHITIETHD.mahd
 JOIN HANGHOA ON CHITIETHD.mah = HANGHOA.mah
 GROUP BY  KHACHHANG.makh, KHACHHANG.tenkh
 ORDER BY KHACHHANG.makh
--------------------- 1 -------------------------
+-------------------- 1 ------------------------
 
 -------------------- 2 -------------------------
 SELECT KHACHHANG.makh,KHACHHANG.tenkh,SUM(CHITIETHD.soluong * HANGHOA.dongia) AS tongthanhthien
