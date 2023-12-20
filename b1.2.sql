@@ -108,8 +108,8 @@ ALTER TABLE dbo.KHACHHANG ADD diachi NVARCHAR(50) DEFAULT N'Phú Thọ'
 
 ------------------------ F ------------------------------------
 ALTER TABLE dbo.HOADON DROP CONSTRAINT FK__HOADON__makh__3B75D760
---------------------------- Thêm lại khóa--------------------------------
+--------------------------- Thêm lại khóa-------------------------------
 ALTER TABLE dbo.HOADON ADD CONSTRAINT FK__HOADON__makh__3B75D760
 FOREIGN KEY (makh) REFERENCES dbo.KHACHHANG(makh)
---------------------------- Thêm lại khóa--------------------------------
+--------------------------- Thêm lại khóa-------------------------------
 ------------------------ F ------------------------------------
