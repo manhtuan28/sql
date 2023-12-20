@@ -145,4 +145,4 @@ ALTER TABLE dbo.SINHVIEN
 ADD CONSTRAINT FK_SINHVIEN_DMLOP
 FOREIGN KEY (malop) REFERENCES dbo.DMLOP(malop);
 ------ Thêm lại khóa-----------
--------------------- F -------------------------
+-------------------- F ------------------------
