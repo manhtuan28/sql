@@ -35,7 +35,7 @@ GROUP BY sv.masv, sv.hoten
 HAVING COUNT(DISTINCT hp.mahp) = (SELECT COUNT(*) FROM dbo.DMHOCPHAN WHERE manganh = '140902');
 -------------------- 4 -------------------------
 
--------------------- 5 -------------------------
+-------------------- 5 ------------------------
 SELECT sv.hoten
 FROM dbo.SINHVIEN sv
 JOIN dbo.DIEMHP dhp ON sv.masv = dhp.masv
@@ -43,4 +43,4 @@ JOIN dbo.DMHOCPHAN hp ON dhp.mahp = hp.mahp
 WHERE hp.mahp IN ('001', '002', '003')
 GROUP BY sv.masv, sv.hoten
 HAVING COUNT(DISTINCT hp.mahp) >= 3;
--------------------- 5 -------------------------
+-------------------- 5 ------------------------
