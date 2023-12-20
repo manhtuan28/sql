@@ -1,4 +1,5 @@
 ﻿USE QLBH
+  
 ------------------------ 1 ------------------------------------
 SELECT makh,tenkh,CONVERT(VARCHAR(10),ngaysinh,103)
 AS ngaysinh, CASE gioitinh WHEN 1 THEN N'Nam' ELSE N'Nứ'
