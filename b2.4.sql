@@ -1,4 +1,5 @@
 ﻿USE QLSV
+  
 -------------------- 1 -------------------------
 SELECT SINHVIEN.malop, tenlop, COUNT(masv) AS siso
 FROM dbo.DMLOP INNER JOIN dbo.SINHVIEN ON DMLOP.malop = SINHVIEN.malop
