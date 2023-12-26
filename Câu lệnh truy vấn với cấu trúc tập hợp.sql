@@ -1,5 +1,5 @@
 USE QLSV
-
+  
 -------------------- 1 -------------------------
 SELECT DISTINCT sv.masv
 FROM SINHVIEN sv
