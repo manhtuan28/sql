@@ -1,5 +1,5 @@
 USE	QLSV
-
+ 
 -------------------- 1 -------------------------
 SELECT masv, mahp, diemhp
 FROM DIEMHP
