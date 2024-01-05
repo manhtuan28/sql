@@ -94,7 +94,7 @@ ALTER TABLE dbo.CHITIETHD ADD CHECK (soluong >= 0)
 ------------------------ B ------------------------------------
 
 ------------------------ C ------------------------------------
-ALTER TABLE dbo.HOADON ADD	DEFAULT (YEAR(GETDATE())) FOR ngaylaphd
+ALTER TABLE dbo.HOADON ADD DEFAULT (YEAR(GETDATE())) FOR ngaylaphd
 ------------------------ C ------------------------------------
 
 --------- D -----------
